@@ -1,0 +1,72 @@
+{
+  "$schema": "https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html",
+  "version": 8,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "Debug-Sanitize",
+      "displayName": "Debug with sanitizers",
+      "generator": "Ninja",
+      "binaryDir": "build/debug-sanitize",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS_DEBUG": "-fsanitize=address,undefined -fno-omit-frame-pointer",
+        "SUR_ENABLE_AVX2": "OFF"
+      }
+    },
+    {
+      "name": "Release-AVX2",
+      "displayName": "Release with AVX2",
+      "generator": "Ninja",
+      "binaryDir": "build/release-avx2",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "SUR_ENABLE_AVX2": "ON",
+        "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG -fopenmp -mavx2 -mfma"
+      }
+    },
+    {
+      "name": "Release-Portable",
+      "displayName": "Release portable",
+      "generator": "Ninja",
+      "binaryDir": "build/release-portable",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "SUR_ENABLE_AVX2": "OFF",
+        "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG -fopenmp"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "Debug-Sanitize",
+      "configurePreset": "Debug-Sanitize"
+    },
+    {
+      "name": "Release-AVX2",
+      "configurePreset": "Release-AVX2"
+    },
+    {
+      "name": "Release-Portable",
+      "configurePreset": "Release-Portable"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "Debug-Sanitize",
+      "configurePreset": "Debug-Sanitize"
+    },
+    {
+      "name": "Release-AVX2",
+      "configurePreset": "Release-AVX2"
+    },
+    {
+      "name": "Release-Portable",
+      "configurePreset": "Release-Portable"
+    }
+  ]
+}
