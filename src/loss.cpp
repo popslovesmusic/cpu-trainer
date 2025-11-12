@@ -2,6 +2,7 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 Loss* create_mse_loss() {
@@ -9,6 +10,8 @@ Loss* create_mse_loss() {
 }
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #include <algorithm>
@@ -138,6 +141,9 @@ std::unique_ptr<Loss> make_mse() { return std::make_unique<MSE>(); }
 std::unique_ptr<Loss> make_mae() { return std::make_unique<MAE>(); }
 
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

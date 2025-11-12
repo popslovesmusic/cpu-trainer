@@ -1,6 +1,7 @@
 #include "surrogate/model.hpp"
 
 #include <memory>
+<<<<<<< ours
 #include <vector>
 
 #include "surrogate/layers.hpp"
@@ -10,6 +11,17 @@ namespace sur {
 template <class T>
 class Tensor;
 
+=======
+#include <stdexcept>
+#include <utility>
+#include <vector>
+
+#include "surrogate/layers.hpp"
+#include "surrogate/tensor.hpp"
+
+namespace sur {
+
+>>>>>>> theirs
 struct Model::Impl {
   std::vector<std::unique_ptr<Layer>> layers;
 };
@@ -17,6 +29,7 @@ struct Model::Impl {
 Model::Model() : impl_(std::make_unique<Impl>()) {}
 Model::~Model() = default;
 
+<<<<<<< ours
 void Model::add_layer(std::unique_ptr<Layer> layer) {
   impl_->layers.emplace_back(std::move(layer));
 }
@@ -27,6 +40,77 @@ std::vector<Tensor<float>*> Model::parameters() {
 
 std::vector<Tensor<float>*> Model::gradients() {
   return {};
+=======
+void Model::add(std::unique_ptr<Layer> layer) {
+  impl_->layers.emplace_back(std::move(layer));
+}
+
+Tensor<float> Model::forward(const Tensor<float>& input) {
+  if (impl_->layers.empty()) {
+    return input.as_contiguous();
+  }
+
+  const Tensor<float>* current = &input;
+  Tensor<float> activation;
+  for (auto& layer : impl_->layers) {
+    Tensor<float> next = layer->forward(*current);
+    activation = std::move(next);
+    current = &activation;
+  }
+
+  return activation;
+}
+
+Tensor<float> Model::backward(const Tensor<float>& grad_output) {
+  if (impl_->layers.empty()) {
+    return grad_output.as_contiguous();
+  }
+
+  const Tensor<float>* current = &grad_output;
+  Tensor<float> grad;
+  for (auto it = impl_->layers.rbegin(); it != impl_->layers.rend(); ++it) {
+    Tensor<float> next = (*it)->backward(*current);
+    grad = std::move(next);
+    current = &grad;
+  }
+
+  return grad;
+}
+
+std::vector<Tensor<float>*> Model::parameters() {
+  std::vector<Tensor<float>*> params;
+  for (auto& layer : impl_->layers) {
+    auto layer_params = layer->params();
+    for (auto* param : layer_params) {
+      if (param) {
+        params.push_back(param);
+      }
+    }
+  }
+  return params;
+}
+
+std::vector<Tensor<float>*> Model::gradients() {
+  std::vector<Tensor<float>*> grads;
+  for (auto& layer : impl_->layers) {
+    auto layer_grads = layer->grads();
+    for (auto* grad : layer_grads) {
+      if (grad) {
+        grads.push_back(grad);
+      }
+    }
+  }
+  return grads;
+}
+
+void Model::reserve_workspaces(int max_batch) {
+  if (max_batch <= 0) {
+    throw std::invalid_argument("Model::reserve_workspaces expects positive batch size");
+  }
+  for (auto& layer : impl_->layers) {
+    layer->reserve_workspaces(max_batch);
+  }
+>>>>>>> theirs
 }
 
 }  // namespace sur

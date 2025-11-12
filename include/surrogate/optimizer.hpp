@@ -1,6 +1,11 @@
 #pragma once
 
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include <cstddef>
+#include <span>
+>>>>>>> theirs
 =======
 #include <cstddef>
 #include <span>
@@ -16,10 +21,13 @@ class Optimizer {
  public:
   virtual ~Optimizer() = default;
 <<<<<<< ours
+<<<<<<< ours
   virtual void step(const std::vector<Tensor<float>*>& params,
                     const std::vector<Tensor<float>*>& grads) = 0;
   virtual void zero_grad(const std::vector<Tensor<float>*>& grads) = 0;
 =======
+=======
+>>>>>>> theirs
 
   virtual void step(std::span<Tensor<float>* const> params,
                     std::span<Tensor<float>* const> grads) = 0;
@@ -89,6 +97,9 @@ class Adam : public Optimizer {
   std::size_t step_ = 0;
   float beta1_pow_ = 1.0f;
   float beta2_pow_ = 1.0f;
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 };
 

@@ -1,6 +1,7 @@
 #include "surrogate/optimizer.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 template <class T>
@@ -12,6 +13,8 @@ class SGD : public Optimizer {
   void zero_grad(const std::vector<Tensor<float>*>&) override {}
 };
 =======
+=======
+>>>>>>> theirs
 #include <cstddef>
 #include <limits>
 #include <stdexcept>
@@ -140,6 +143,9 @@ void SGD::step(std::span<Tensor<float>* const> params,
     kernels::axpy(-lr_, update, param_data, narrow_size(tensor_size));
   }
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur
