@@ -8,6 +8,7 @@ namespace sur {
 struct RuntimeConfig {
   std::string preset;
   int threads = 1;
+<<<<<<< ours
   bool enable_avx2 = false;
 };
 
@@ -43,6 +44,15 @@ struct RuntimeConfig {
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+#if defined(SUR_HAS_AVX2)
+  bool enable_avx2 = true;
+#else
+  bool enable_avx2 = false;
+#endif
+};
+
+>>>>>>> theirs
 namespace config {
 
 inline constexpr int kGemmBlockMC = 256;
@@ -61,6 +71,9 @@ inline constexpr int kGemmBlockKC = 256;
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

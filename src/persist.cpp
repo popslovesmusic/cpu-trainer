@@ -4,12 +4,15 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 void save_model(const Model&, const std::filesystem::path&) {}
 
 void load_model(Model&, const std::filesystem::path&) {}
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -226,6 +229,9 @@ void load(Model& model, const std::filesystem::path& path) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

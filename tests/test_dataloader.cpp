@@ -138,7 +138,10 @@ void test_shuffle_changes_order_across_epochs() {
 }
 
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 void test_setting_seed_resets_sequence() {
   constexpr int input_dim = 1;
   constexpr int output_dim = 1;
@@ -188,6 +191,9 @@ void test_setting_seed_resets_sequence() {
   assert(second_order == expected);
 }
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 }  // namespace
 
@@ -195,6 +201,10 @@ int main() {
   test_aligned_batches_and_sequential_iteration();
   test_shuffle_changes_order_across_epochs();
 <<<<<<< ours
+<<<<<<< ours
+=======
+  test_setting_seed_resets_sequence();
+>>>>>>> theirs
 =======
   test_setting_seed_resets_sequence();
 >>>>>>> theirs

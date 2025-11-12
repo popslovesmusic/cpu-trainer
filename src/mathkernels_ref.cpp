@@ -12,6 +12,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur::kernels {
 
 void gemm_ref(int, int, int, const float*, int, const float*, int, float*, int, float) {}
@@ -25,6 +26,8 @@ void axpy_ref(float, const float*, float*, int) {}
 }  // namespace sur::kernels
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -166,6 +169,9 @@ float reduce_sum_ref(const float* x, int n) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

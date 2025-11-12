@@ -7,6 +7,79 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(GNUInstallDirs)
+<<<<<<< ours
+=======
+include(CheckCXXSourceCompiles)
+
+option(SUR_ENABLE_AVX2 "Enable AVX2 kernels" ON)
+option(SUR_ENABLE_OPENMP "Enable OpenMP parallelism" ON)
+
+set(SUR_COMPILER_HAS_AVX2 OFF)
+if(SUR_ENABLE_AVX2)
+  message(STATUS "Checking whether the compiler supports AVX2 intrinsics")
+  set(_sur_saved_cxx_flags "${CMAKE_CXX_FLAGS}")
+  set(_sur_saved_required_flags "${CMAKE_REQUIRED_FLAGS}")
+  set(_sur_saved_try_compile_keep_files "${CMAKE_TRY_COMPILE_KEEP_FILES}")
+  set(CMAKE_TRY_COMPILE_KEEP_FILES TRUE)
+  if(MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /arch:AVX2")
+    set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} /arch:AVX2")
+  else()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mavx2 -mfma")
+    set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -mavx2 -mfma")
+  endif()
+
+  message(STATUS "Using CXX flags '${CMAKE_CXX_FLAGS}' for AVX2 probe")
+  message(STATUS "Using required flags '${CMAKE_REQUIRED_FLAGS}' for AVX2 probe")
+
+  check_cxx_source_compiles(
+    "#ifndef __AVX2__\n#error \"AVX2 not supported\"\n#endif\nint main(){return 0;}"
+    SUR_COMPILER_HAS_AVX2)
+
+  if(NOT SUR_COMPILER_HAS_AVX2)
+    set(_sur_avx2_probe "${CMAKE_BINARY_DIR}/CMakeFiles/sur_check_avx2.cpp")
+    file(WRITE "${_sur_avx2_probe}" "#include <immintrin.h>\nint main(){\n  __m256 a = _mm256_set1_ps(1.0f);\n  __m256 b = _mm256_set1_ps(2.0f);\n  (void)_mm256_add_ps(a, b);\n  return 0;\n}\n")
+    set(_sur_avx2_command "${CMAKE_CXX_COMPILER}")
+    set(_sur_avx2_args)
+    if(CMAKE_CXX_COMPILER_ARG1)
+      list(APPEND _sur_avx2_args "${CMAKE_CXX_COMPILER_ARG1}")
+    endif()
+    list(APPEND _sur_avx2_args "-std=c++20")
+    if(CMAKE_CXX_FLAGS)
+      separate_arguments(_sur_base_flags NATIVE_COMMAND "${CMAKE_CXX_FLAGS}")
+      list(APPEND _sur_avx2_args ${_sur_base_flags})
+    endif()
+    list(APPEND _sur_avx2_args "-c" "${_sur_avx2_probe}" "-o" "${CMAKE_BINARY_DIR}/CMakeFiles/sur_check_avx2.o")
+    if(MSVC)
+      list(APPEND _sur_avx2_args "/arch:AVX2")
+    else()
+      list(APPEND _sur_avx2_args "-mavx2" "-mfma")
+    endif()
+    execute_process(COMMAND ${_sur_avx2_command} ${_sur_avx2_args}
+                    RESULT_VARIABLE _sur_avx2_result
+                    OUTPUT_QUIET ERROR_QUIET)
+    if(_sur_avx2_result EQUAL 0)
+      set(SUR_COMPILER_HAS_AVX2 TRUE)
+      message(STATUS "AVX2 fallback probe succeeded")
+    else()
+      message(STATUS "AVX2 fallback probe failed with code ${_sur_avx2_result}")
+    endif()
+  endif()
+
+  set(CMAKE_CXX_FLAGS "${_sur_saved_cxx_flags}")
+  set(CMAKE_REQUIRED_FLAGS "${_sur_saved_required_flags}")
+  set(CMAKE_TRY_COMPILE_KEEP_FILES "${_sur_saved_try_compile_keep_files}")
+  if(SUR_COMPILER_HAS_AVX2)
+    message(STATUS "AVX2 intrinsics supported")
+  else()
+    message(STATUS "AVX2 intrinsics not supported")
+  endif()
+endif()
+
+if(SUR_ENABLE_OPENMP)
+  find_package(OpenMP)
+endif()
+>>>>>>> theirs
 
 add_library(surrogate STATIC
     src/aligned_alloc.cpp
@@ -37,6 +110,27 @@ target_compile_options(surrogate PRIVATE
     $<$<CXX_COMPILER_ID:MSVC>:/W4 /permissive->
 )
 
+<<<<<<< ours
+=======
+if(SUR_ENABLE_OPENMP AND OpenMP_CXX_FOUND)
+  target_link_libraries(surrogate PUBLIC OpenMP::OpenMP_CXX)
+  target_compile_definitions(surrogate PUBLIC SUR_HAS_OPENMP=1)
+elseif(SUR_ENABLE_OPENMP)
+  message(WARNING "OpenMP requested but not found; building without parallel support.")
+endif()
+
+if(SUR_COMPILER_HAS_AVX2)
+  target_compile_definitions(surrogate PUBLIC SUR_HAS_AVX2=1)
+  if(MSVC)
+    target_compile_options(surrogate PRIVATE /arch:AVX2)
+  else()
+    target_compile_options(surrogate PRIVATE -mavx2 -mfma)
+  endif()
+elseif(SUR_ENABLE_AVX2)
+  message(WARNING "AVX2 requested but the compiler does not support it; falling back to portable kernels.")
+endif()
+
+>>>>>>> theirs
 add_executable(surrogate_tests
     tests/test_tensor.cpp
     tests/test_mathkernels.cpp
@@ -50,6 +144,7 @@ add_executable(surrogate_tests
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
     tests/test_loss.cpp
 >>>>>>> theirs
@@ -68,6 +163,8 @@ add_executable(surrogate_tests
     tests/test_model.cpp
 >>>>>>> theirs
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -84,6 +181,10 @@ add_executable(surrogate_tests
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+    tests/test_persist.cpp
 >>>>>>> theirs
 =======
     tests/test_persist.cpp
