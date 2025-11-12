@@ -8,7 +8,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(GNUInstallDirs)
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 include(CheckCXXSourceCompiles)
 
 option(SUR_ENABLE_AVX2 "Enable AVX2 kernels" ON)
@@ -79,6 +82,9 @@ endif()
 if(SUR_ENABLE_OPENMP)
   find_package(OpenMP)
 endif()
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 add_library(surrogate STATIC
@@ -111,7 +117,10 @@ target_compile_options(surrogate PRIVATE
 )
 
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 if(SUR_ENABLE_OPENMP AND OpenMP_CXX_FOUND)
   target_link_libraries(surrogate PUBLIC OpenMP::OpenMP_CXX)
   target_compile_definitions(surrogate PUBLIC SUR_HAS_OPENMP=1)
@@ -130,6 +139,7 @@ elseif(SUR_ENABLE_AVX2)
   message(WARNING "AVX2 requested but the compiler does not support it; falling back to portable kernels.")
 endif()
 
+<<<<<<< ours
 >>>>>>> theirs
 add_executable(surrogate_tests
     tests/test_tensor.cpp
@@ -210,6 +220,42 @@ add_executable(surrogate_bench
 )
 
 target_link_libraries(surrogate_bench PRIVATE surrogate)
+=======
+set(SURROGATE_TEST_SOURCES
+    test_tensor
+    test_mathkernels
+    test_layers
+    test_loss
+    test_optimizer
+    test_model
+    test_dataloader
+    test_persist
+    test_gradcheck
+    test_trainer
+)
+
+set(SURROGATE_TEST_TARGETS)
+foreach(test_name IN LISTS SURROGATE_TEST_SOURCES)
+    add_executable(${test_name} tests/${test_name}.cpp)
+    target_link_libraries(${test_name} PRIVATE surrogate)
+    list(APPEND SURROGATE_TEST_TARGETS ${test_name})
+endforeach()
+
+add_custom_target(surrogate_tests)
+add_dependencies(surrogate_tests ${SURROGATE_TEST_TARGETS})
+
+add_executable(surrogate_bench_gemm bench/bench_gemm.cpp)
+target_link_libraries(surrogate_bench_gemm PRIVATE surrogate)
+
+add_executable(surrogate_bench_elemwise bench/bench_elemwise.cpp)
+target_link_libraries(surrogate_bench_elemwise PRIVATE surrogate)
+
+add_custom_target(surrogate_bench)
+add_dependencies(surrogate_bench
+    surrogate_bench_gemm
+    surrogate_bench_elemwise
+)
+>>>>>>> theirs
 
 add_executable(example_mlp examples/example_mlp.cpp)
 
@@ -226,6 +272,12 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 include(CTest)
 if(BUILD_TESTING)
+<<<<<<< ours
     add_test(NAME surrogate_tests COMMAND surrogate_tests)
+=======
+    foreach(test_target IN LISTS SURROGATE_TEST_TARGETS)
+        add_test(NAME ${test_target} COMMAND ${test_target})
+    endforeach()
+>>>>>>> theirs
 endif()
 

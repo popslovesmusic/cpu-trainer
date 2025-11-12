@@ -34,7 +34,10 @@ GitHub Actions runs the preset matrix across Linux, macOS, and Windows to ensure
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 ## Performance Hints
@@ -54,6 +57,9 @@ Keep batch sizes large enough to feed the GEMM kernels efficiently (multiples of
 `sur::TrainConfig` exposes a `deterministic` flag and `seed` so repeated runs can reproduce data ordering and OpenMP scheduling. When determinism is enabled the trainer fixes the OpenMP schedule to `static`, disables dynamic teams, seeds the `DataLoader`, and keeps reductions ordered. Floating-point associativity still allows tiny numeric drift, so bitwise-identical results require single-threaded execution.
 
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

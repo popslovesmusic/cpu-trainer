@@ -9,6 +9,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <vector>
 
 #include "surrogate/layers.hpp"
@@ -19,6 +20,8 @@ template <class T>
 class Tensor;
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -49,6 +52,7 @@ namespace sur {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -60,6 +64,11 @@ namespace sur {
 >>>>>>> theirs
 struct Model::Impl {
   std::vector<std::unique_ptr<Layer>> layers;
+=======
+struct Model::Impl {
+  std::vector<std::unique_ptr<Layer>> layers;
+  std::vector<Tensor<float>> activations;
+>>>>>>> theirs
 =======
 struct Model::Impl {
   std::vector<std::unique_ptr<Layer>> layers;
@@ -80,6 +89,7 @@ struct Model::Impl {
 Model::Model() : impl_(std::make_unique<Impl>()) {}
 Model::~Model() = default;
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -113,6 +123,8 @@ std::vector<Tensor<float>*> Model::gradients() {
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
 void Model::add(std::unique_ptr<Layer> layer) {
   impl_->layers.emplace_back(std::move(layer));
 }
@@ -122,6 +134,7 @@ Tensor<float> Model::forward(const Tensor<float>& input) {
     return input.as_contiguous();
   }
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -139,6 +152,8 @@ Tensor<float> Model::forward(const Tensor<float>& input) {
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
   impl_->activations.resize(impl_->layers.size());
   const Tensor<float>* current = &input;
   for (std::size_t i = 0; i < impl_->layers.size(); ++i) {
@@ -150,6 +165,9 @@ Tensor<float> Model::forward(const Tensor<float>& input) {
   return impl_->activations.back().as_contiguous();
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -213,6 +231,7 @@ void Model::reserve_workspaces(int max_batch) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -221,6 +240,8 @@ void Model::reserve_workspaces(int max_batch) {
 }
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -247,6 +268,9 @@ const std::vector<std::unique_ptr<Layer>>& access_layers(const Model& model) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

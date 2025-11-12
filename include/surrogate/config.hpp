@@ -9,6 +9,7 @@ struct RuntimeConfig {
   std::string preset;
   int threads = 1;
 <<<<<<< ours
+<<<<<<< ours
   bool enable_avx2 = false;
 };
 
@@ -45,6 +46,8 @@ struct RuntimeConfig {
 =======
 >>>>>>> theirs
 =======
+=======
+>>>>>>> theirs
 #if defined(SUR_HAS_AVX2)
   bool enable_avx2 = true;
 #else
@@ -52,6 +55,9 @@ struct RuntimeConfig {
 #endif
 };
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 namespace config {
 
@@ -72,6 +78,9 @@ inline constexpr int kGemmBlockKC = 256;
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
