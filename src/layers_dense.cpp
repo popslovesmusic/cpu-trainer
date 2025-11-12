@@ -1,11 +1,14 @@
 #include "surrogate/layers.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 std::vector<LayerPtr> create_default_layers() {
   return {};
 =======
+=======
+>>>>>>> theirs
 #include <stdexcept>
 
 namespace sur {
@@ -181,6 +184,9 @@ void Dense::reserve_workspaces(int max_batch) {
     throw std::invalid_argument("reserve_workspaces expects positive batch");
   }
   ensure_workspaces(max_batch);
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 }
 

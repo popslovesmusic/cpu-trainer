@@ -2,10 +2,13 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur::kernels {
 
 // AVX2 implementations will be provided in later phases.
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #include <algorithm>
@@ -538,6 +541,9 @@ float reduce_sum(const float* x, int n) {
   return reduce_sum_ref(x, n);
 }
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

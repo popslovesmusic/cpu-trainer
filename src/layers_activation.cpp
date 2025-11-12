@@ -1,9 +1,12 @@
 #include "surrogate/layers.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 =======
+=======
+>>>>>>> theirs
 #include <stdexcept>
 
 namespace sur {
@@ -86,6 +89,9 @@ Tensor<float> Sigmoid::backward(const Tensor<float>& dy) {
   return dx;
 }
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 }  // namespace sur
 

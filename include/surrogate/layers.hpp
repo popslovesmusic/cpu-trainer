@@ -1,6 +1,7 @@
 #pragma once
 
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
 #include <vector>
 
@@ -9,6 +10,8 @@ namespace sur {
 template <class T>
 class Tensor;
 =======
+=======
+>>>>>>> theirs
 #include <array>
 #include <memory>
 #include <span>
@@ -19,28 +22,40 @@ class Tensor;
 #include "surrogate/tensor_view.hpp"
 
 namespace sur {
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 class Layer {
  public:
   virtual ~Layer() = default;
 <<<<<<< ours
+<<<<<<< ours
   virtual void forward() = 0;
   virtual void backward() = 0;
 =======
+=======
+>>>>>>> theirs
   virtual Tensor<float> forward(const Tensor<float>& x) = 0;
   virtual Tensor<float> backward(const Tensor<float>& dy) = 0;
   virtual std::span<Tensor<float>*> params() noexcept { return {}; }
   virtual std::span<Tensor<float>*> grads() noexcept { return {}; }
   virtual void reserve_workspaces(int /*max_batch*/) {}
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 };
 
 using LayerPtr = std::unique_ptr<Layer>;
 
 <<<<<<< ours
+<<<<<<< ours
 std::vector<LayerPtr> create_default_layers();
 =======
+=======
+>>>>>>> theirs
 class Dense final : public Layer {
  public:
   Dense(int in_features, int out_features, bool use_bias = true);
@@ -114,6 +129,9 @@ class Sigmoid final : public Layer {
   std::array<int, 4> last_shape_{};
   bool has_cache_ = false;
 };
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur

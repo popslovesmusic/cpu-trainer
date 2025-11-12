@@ -41,6 +41,10 @@ add_executable(surrogate_tests
     tests/test_tensor.cpp
     tests/test_mathkernels.cpp
     tests/test_layers.cpp
+<<<<<<< ours
+=======
+    tests/test_loss.cpp
+>>>>>>> theirs
     tests/test_gradcheck.cpp
     tests/test_trainer.cpp
 )

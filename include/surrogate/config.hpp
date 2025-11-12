@@ -13,7 +13,10 @@ struct RuntimeConfig {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 namespace config {
@@ -25,6 +28,9 @@ inline constexpr int kGemmBlockKC = 256;
 }  // namespace config
 
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

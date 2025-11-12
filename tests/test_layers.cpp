@@ -1,8 +1,11 @@
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
 =======
+=======
+>>>>>>> theirs
 #include <cassert>
 #include <cmath>
 #include <initializer_list>
@@ -144,5 +147,8 @@ int main() {
   std::cout << "Layers tests passed\n";
   return 0;
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
