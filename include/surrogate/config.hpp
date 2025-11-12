@@ -10,6 +10,7 @@ struct RuntimeConfig {
   int threads = 1;
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   bool enable_avx2 = false;
 };
 
@@ -46,6 +47,8 @@ struct RuntimeConfig {
 =======
 >>>>>>> theirs
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #if defined(SUR_HAS_AVX2)
@@ -56,6 +59,9 @@ struct RuntimeConfig {
 };
 
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -79,6 +85,9 @@ inline constexpr int kGemmBlockKC = 256;
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

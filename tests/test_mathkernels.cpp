@@ -12,11 +12,14 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -110,11 +113,14 @@ void test_gemm() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   sur::kernels::gemm_ref(M, N, K, A.data(), lda, B.data(), ldb, C.data(), ldc, beta);
 
   for (int i = 0; i < M * ldc; ++i) {
     expect_close(C[i], expected[i]);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -165,6 +171,9 @@ void test_gemm() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -236,11 +245,14 @@ void test_gemv() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   sur::kernels::gemv_ref(M, N, A.data(), lda, x.data(), incx, y.data(), incy, beta);
 
   for (int i = 0; i < M * incy; ++i) {
     expect_close(y[i], expected[i]);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -291,6 +303,9 @@ void test_gemv() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -346,6 +361,10 @@ void test_dot_axpy() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  expect_close(sur::kernels::dot(x.data(), y.data(), n), expected_dot);
+>>>>>>> theirs
 =======
   expect_close(sur::kernels::dot(x.data(), y.data(), n), expected_dot);
 >>>>>>> theirs
@@ -404,10 +423,13 @@ void test_dot_axpy() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   sur::kernels::axpy_ref(a, x.data(), y.data(), n);
   for (int i = 0; i < n; ++i) {
     expect_close(y[i], expected[i]);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -458,6 +480,9 @@ void test_dot_axpy() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -506,6 +531,7 @@ void test_activations() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   sur::kernels::relu_ref(y.data(), x.data(), n);
   std::vector<float> expected_relu{0.0f, 0.0f, 0.0f, 0.2f, 3.5f};
   for (int i = 0; i < n; ++i) {
@@ -540,6 +566,8 @@ void test_activations() {
     float expected = dy[i] * y[i] * (1.0f - y[i]);
     expect_close(dx[i], expected);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -660,6 +688,9 @@ void test_activations() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -708,6 +739,10 @@ void test_reduce_sum() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  expect_close(sur::kernels::reduce_sum(values.data(), static_cast<int>(values.size())), expected);
+>>>>>>> theirs
 =======
   expect_close(sur::kernels::reduce_sum(values.data(), static_cast<int>(values.size())), expected);
 >>>>>>> theirs
@@ -772,6 +807,9 @@ int main() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

@@ -8,6 +8,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 
 namespace sur {
 
@@ -18,6 +19,8 @@ class Tensor;
 template <class T>
 class TensorView;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -42,6 +45,9 @@ namespace sur {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -59,6 +65,7 @@ namespace sur {
 class DataLoader {
  public:
   virtual ~DataLoader() = default;
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -105,6 +112,8 @@ class DataLoader {
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
   virtual bool next_batch(Tensor<float>& inputs, Tensor<float>& targets) = 0;
   virtual void reset() = 0;
   virtual std::size_t size() const noexcept = 0;
@@ -113,6 +122,9 @@ class DataLoader {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -132,6 +144,10 @@ class TensorDataLoader final : public DataLoader {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  void set_seed(unsigned int seed) override;
+>>>>>>> theirs
 =======
   void set_seed(unsigned int seed) override;
 >>>>>>> theirs
@@ -174,6 +190,9 @@ class TensorDataLoader final : public DataLoader {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

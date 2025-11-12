@@ -140,7 +140,10 @@ void test_shuffle_changes_order_across_epochs() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -196,6 +199,9 @@ void test_setting_seed_resets_sequence() {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -209,6 +215,10 @@ int main() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  test_setting_seed_resets_sequence();
+>>>>>>> theirs
 =======
   test_setting_seed_resets_sequence();
 >>>>>>> theirs
