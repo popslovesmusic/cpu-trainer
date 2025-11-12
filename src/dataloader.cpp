@@ -1,8 +1,11 @@
 #include "surrogate/dataloader.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 =======
+=======
+>>>>>>> theirs
 #include <algorithm>
 #include <array>
 #include <numeric>
@@ -126,6 +129,9 @@ void TensorDataLoader::prepare_indices() {
   std::iota(indices_.begin(), indices_.end(), 0);
   cursor_ = 0;
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur

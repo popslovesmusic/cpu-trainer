@@ -2,6 +2,7 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
 
 namespace sur {
@@ -15,6 +16,8 @@ Trainer::~Trainer() = default;
 
 void Trainer::train(const TrainerConfig&) {}
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #include <cstddef>
@@ -151,6 +154,9 @@ void Trainer::train(Model& model,
   }
 }
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

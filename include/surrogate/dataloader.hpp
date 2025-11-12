@@ -2,6 +2,7 @@
 
 #include <cstddef>
 <<<<<<< ours
+<<<<<<< ours
 
 namespace sur {
 
@@ -12,17 +13,23 @@ class Tensor;
 template <class T>
 class TensorView;
 =======
+=======
+>>>>>>> theirs
 #include <random>
 #include <vector>
 
 #include "surrogate/tensor.hpp"
 
 namespace sur {
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 class DataLoader {
  public:
   virtual ~DataLoader() = default;
+<<<<<<< ours
 <<<<<<< ours
   virtual bool next_batch(TensorView<float>& inputs, TensorView<float>& targets) = 0;
 =======
@@ -34,12 +41,18 @@ class DataLoader {
 =======
   virtual bool next_batch(Tensor<float>& inputs, Tensor<float>& targets) = 0;
 >>>>>>> theirs
+=======
+  virtual bool next_batch(Tensor<float>& inputs, Tensor<float>& targets) = 0;
+>>>>>>> theirs
   virtual void reset() = 0;
   virtual std::size_t size() const noexcept = 0;
 };
 
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 class TensorDataLoader final : public DataLoader {
  public:
   TensorDataLoader(Tensor<float> inputs,
@@ -78,6 +91,9 @@ class TensorDataLoader final : public DataLoader {
   std::vector<int> indices_;
 };
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 }  // namespace sur
 

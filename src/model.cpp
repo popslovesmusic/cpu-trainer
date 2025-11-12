@@ -4,6 +4,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <vector>
 
 #include "surrogate/layers.hpp"
@@ -14,6 +15,8 @@ template <class T>
 class Tensor;
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -29,6 +32,9 @@ namespace sur {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -44,6 +50,7 @@ Model::~Model() = default;
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 void Model::add_layer(std::unique_ptr<Layer> layer) {
   impl_->layers.emplace_back(std::move(layer));
 }
@@ -55,6 +62,8 @@ std::vector<Tensor<float>*> Model::parameters() {
 std::vector<Tensor<float>*> Model::gradients() {
   return {};
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -130,6 +139,7 @@ void Model::reserve_workspaces(int max_batch) {
   }
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -137,5 +147,21 @@ void Model::reserve_workspaces(int max_batch) {
 >>>>>>> theirs
 }
 
+=======
+}
+
+namespace detail {
+
+std::vector<std::unique_ptr<Layer>>& access_layers(Model& model) {
+  return model.impl_->layers;
+}
+
+const std::vector<std::unique_ptr<Layer>>& access_layers(const Model& model) {
+  return model.impl_->layers;
+}
+
+}  // namespace detail
+
+>>>>>>> theirs
 }  // namespace sur
 
