@@ -2,6 +2,7 @@
 
 #include <memory>
 <<<<<<< ours
+<<<<<<< ours
 #include <vector>
 
 #include "surrogate/layers.hpp"
@@ -12,6 +13,8 @@ template <class T>
 class Tensor;
 
 =======
+=======
+>>>>>>> theirs
 #include <stdexcept>
 #include <utility>
 #include <vector>
@@ -21,6 +24,9 @@ class Tensor;
 
 namespace sur {
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 struct Model::Impl {
   std::vector<std::unique_ptr<Layer>> layers;
@@ -29,6 +35,7 @@ struct Model::Impl {
 Model::Model() : impl_(std::make_unique<Impl>()) {}
 Model::~Model() = default;
 
+<<<<<<< ours
 <<<<<<< ours
 void Model::add_layer(std::unique_ptr<Layer> layer) {
   impl_->layers.emplace_back(std::move(layer));
@@ -41,6 +48,8 @@ std::vector<Tensor<float>*> Model::parameters() {
 std::vector<Tensor<float>*> Model::gradients() {
   return {};
 =======
+=======
+>>>>>>> theirs
 void Model::add(std::unique_ptr<Layer> layer) {
   impl_->layers.emplace_back(std::move(layer));
 }
@@ -110,6 +119,9 @@ void Model::reserve_workspaces(int max_batch) {
   for (auto& layer : impl_->layers) {
     layer->reserve_workspaces(max_batch);
   }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 }
 

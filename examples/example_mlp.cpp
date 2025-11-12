@@ -1,9 +1,12 @@
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
 
 =======
+=======
+>>>>>>> theirs
 #include <iostream>
 #include <memory>
 
@@ -61,4 +64,7 @@ int main() {
 
   return 0;
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs

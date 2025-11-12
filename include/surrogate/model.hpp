@@ -16,11 +16,14 @@ class Model {
   ~Model();
 
 <<<<<<< ours
+<<<<<<< ours
   void add_layer(std::unique_ptr<Layer> layer);
   std::vector<Tensor<float>*> parameters();
   std::vector<Tensor<float>*> gradients();
 
 =======
+=======
+>>>>>>> theirs
   void add(std::unique_ptr<Layer> layer);
 
   Tensor<float> forward(const Tensor<float>& input);
@@ -31,6 +34,9 @@ class Model {
 
   void reserve_workspaces(int max_batch);
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
  private:
   struct Impl;

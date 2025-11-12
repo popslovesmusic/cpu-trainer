@@ -2,6 +2,11 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include <cstddef>
+#include <span>
+>>>>>>> theirs
 =======
 #include <cstddef>
 #include <span>
@@ -22,10 +27,13 @@ class Optimizer {
   virtual ~Optimizer() = default;
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   virtual void step(const std::vector<Tensor<float>*>& params,
                     const std::vector<Tensor<float>*>& grads) = 0;
   virtual void zero_grad(const std::vector<Tensor<float>*>& grads) = 0;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 
@@ -98,6 +106,9 @@ class Adam : public Optimizer {
   float beta1_pow_ = 1.0f;
   float beta2_pow_ = 1.0f;
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
