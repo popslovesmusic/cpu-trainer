@@ -1,12 +1,15 @@
 #pragma once
 
 <<<<<<< ours
+<<<<<<< ours
 #include <array>
 #include <cstddef>
 #include <span>
 #include <utility>
 
 =======
+=======
+>>>>>>> theirs
 #include <algorithm>
 #include <array>
 #include <cstddef>
@@ -18,6 +21,9 @@
 #include "surrogate/aligned_alloc.hpp"
 #include "surrogate/tensor_view.hpp"
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 namespace sur {
 
@@ -26,11 +32,14 @@ class Tensor {
  public:
   using value_type = T;
 <<<<<<< ours
+<<<<<<< ours
 
   Tensor() = default;
   Tensor(T* data, std::size_t size, std::array<int, 4> shape, std::array<int, 4> strides, bool row_major = true)
       : data_(data), size_(size), shape_(shape), strides_(strides), offset_(0), row_major_(row_major) {}
 =======
+=======
+>>>>>>> theirs
   using pointer = T*;
   using const_pointer = const T*;
 
@@ -50,6 +59,9 @@ class Tensor {
 
   Tensor(std::initializer_list<int> dims, bool row_major = true)
       : Tensor(std::span<const int>(dims.begin(), dims.size()), row_major) {}
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
   Tensor(const Tensor&) = delete;
@@ -61,17 +73,23 @@ class Tensor {
         strides_(other.strides_),
         offset_(std::exchange(other.offset_, 0)),
 <<<<<<< ours
+<<<<<<< ours
         row_major_(other.row_major_) {}
 
   Tensor& operator=(Tensor&& other) noexcept {
     if (this != &other) {
 =======
+=======
+>>>>>>> theirs
         row_major_(other.row_major_),
         owning_(std::exchange(other.owning_, false)) {}
 
   Tensor& operator=(Tensor&& other) noexcept {
     if (this != &other) {
       release();
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
       data_ = std::exchange(other.data_, nullptr);
       size_ = std::exchange(other.size_, 0);
@@ -80,6 +98,10 @@ class Tensor {
       offset_ = std::exchange(other.offset_, 0);
       row_major_ = other.row_major_;
 <<<<<<< ours
+<<<<<<< ours
+=======
+      owning_ = std::exchange(other.owning_, false);
+>>>>>>> theirs
 =======
       owning_ = std::exchange(other.owning_, false);
 >>>>>>> theirs
@@ -87,6 +109,7 @@ class Tensor {
     return *this;
   }
 
+<<<<<<< ours
 <<<<<<< ours
   ~Tensor() = default;
 
@@ -109,6 +132,8 @@ class Tensor {
  private:
   T* data_ = nullptr;
 =======
+=======
+>>>>>>> theirs
   ~Tensor() { release(); }
 
   [[nodiscard]] pointer data() noexcept { return data_; }
@@ -297,6 +322,9 @@ class Tensor {
   }
 
   pointer data_ = nullptr;
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
   std::size_t size_ = 0;
   std::array<int, 4> shape_{};
@@ -304,6 +332,10 @@ class Tensor {
   std::size_t offset_ = 0;
   bool row_major_ = true;
 <<<<<<< ours
+<<<<<<< ours
+=======
+  bool owning_ = false;
+>>>>>>> theirs
 =======
   bool owning_ = false;
 >>>>>>> theirs
@@ -311,6 +343,7 @@ class Tensor {
 
 }  // namespace sur
 
+<<<<<<< ours
 <<<<<<< ours
 #include "surrogate/tensor_view.hpp"
 
@@ -328,5 +361,7 @@ TensorView<const T> make_view(const Tensor<T>& tensor) {
 
 }  // namespace sur
 
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs

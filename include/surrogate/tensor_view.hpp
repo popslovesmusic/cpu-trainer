@@ -10,6 +10,7 @@ class TensorView {
  public:
   using value_type = T;
 <<<<<<< ours
+<<<<<<< ours
 
   TensorView() = default;
   TensorView(T* data, std::array<int, 4> shape, std::array<int, 4> strides, std::size_t offset = 0) noexcept
@@ -26,6 +27,8 @@ class TensorView {
   std::array<int, 4> strides_{};
   std::size_t offset_ = 0;
 =======
+=======
+>>>>>>> theirs
   using pointer = T*;
   using reference = T&;
 
@@ -79,6 +82,9 @@ class TensorView {
   std::array<int, 4> strides_{};
   std::size_t offset_ = 0;
   bool row_major_ = true;
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 };
 

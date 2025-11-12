@@ -1,8 +1,11 @@
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
 =======
+=======
+>>>>>>> theirs
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
@@ -88,5 +91,8 @@ int main() {
   }
   return EXIT_SUCCESS;
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
