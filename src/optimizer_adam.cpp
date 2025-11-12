@@ -6,6 +6,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 template <class T>
@@ -17,6 +18,8 @@ class Adam : public Optimizer {
   void zero_grad(const std::vector<Tensor<float>*>&) override {}
 };
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -175,6 +178,9 @@ void Adam::step(std::span<Tensor<float>* const> params,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

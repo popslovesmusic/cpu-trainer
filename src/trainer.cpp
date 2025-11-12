@@ -4,6 +4,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
 
 namespace sur {
@@ -27,6 +28,11 @@ void Trainer::train(const TrainerConfig&) {}
 #include <cstddef>
 #include <cmath>
 >>>>>>> theirs
+=======
+#include <chrono>
+#include <cstddef>
+#include <cmath>
+>>>>>>> theirs
 #include <span>
 #include <stdexcept>
 #include <utility>
@@ -38,6 +44,10 @@ void Trainer::train(const TrainerConfig&) {}
 
 #include "surrogate/dataloader.hpp"
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include "surrogate/logging.hpp"
+>>>>>>> theirs
 =======
 #include "surrogate/logging.hpp"
 >>>>>>> theirs
@@ -70,7 +80,10 @@ void validate_config(const TrainConfig& config) {
 }
 
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 float compute_gradient_norm(std::span<Tensor<float>* const> grads) {
   double sum = 0.0;
   for (Tensor<float>* grad : grads) {
@@ -87,6 +100,9 @@ float compute_gradient_norm(std::span<Tensor<float>* const> grads) {
   return static_cast<float>(std::sqrt(sum));
 }
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 void scale_gradients(std::span<Tensor<float>* const> grads,
                      float scale,
@@ -154,10 +170,13 @@ void Trainer::train(Model& model,
   Tensor<float> batch_targets;
 
 <<<<<<< ours
+<<<<<<< ours
   for (int epoch = 0; epoch < config.epochs; ++epoch) {
     dataloader.reset();
     while (dataloader.next_batch(batch_inputs, batch_targets)) {
 =======
+=======
+>>>>>>> theirs
   Logger* active_logger = config.logger;
   if (!active_logger) {
     if (config.log_every > 0) {
@@ -174,6 +193,9 @@ void Trainer::train(Model& model,
     dataloader.reset();
     while (dataloader.next_batch(batch_inputs, batch_targets)) {
       const auto batch_start = std::chrono::steady_clock::now();
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
       const auto& input_shape = batch_inputs.shape();
       const auto& target_shape = batch_targets.shape();
@@ -191,7 +213,11 @@ void Trainer::train(Model& model,
 
       Tensor<float> predictions = model.forward(batch_inputs);
 <<<<<<< ours
+<<<<<<< ours
       [[maybe_unused]] const float loss_value = loss.compute(predictions, batch_targets);
+=======
+      const float loss_value = loss.compute(predictions, batch_targets);
+>>>>>>> theirs
 =======
       const float loss_value = loss.compute(predictions, batch_targets);
 >>>>>>> theirs
@@ -201,6 +227,7 @@ void Trainer::train(Model& model,
       const float scale = 1.0f / static_cast<float>(input_shape[1]);
       scale_gradients(grads, scale, threads);
 
+<<<<<<< ours
 <<<<<<< ours
       optimizer.step(params, grads);
     }
@@ -214,6 +241,8 @@ void Trainer::train(Model& model,
 =======
 >>>>>>> theirs
 =======
+=======
+>>>>>>> theirs
       const float grad_norm = compute_gradient_norm(grads);
 
       const double elapsed_ms = std::chrono::duration<double, std::milli>(
@@ -239,6 +268,9 @@ void Trainer::train(Model& model,
     active_logger->flush();
   }
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur

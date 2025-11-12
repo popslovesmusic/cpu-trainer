@@ -8,9 +8,12 @@ class Model;
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 void save_model(const Model& model, const std::filesystem::path& path);
 void load_model(Model& model, const std::filesystem::path& path);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 void save(const Model& model, const std::filesystem::path& path);
@@ -25,6 +28,9 @@ inline void load_model(Model& model, const std::filesystem::path& path) {
   load(model, path);
 }
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

@@ -8,6 +8,7 @@ class Logger {
  public:
   virtual ~Logger() = default;
 <<<<<<< ours
+<<<<<<< ours
   virtual void info(const std::string& message) = 0;
   virtual void warn(const std::string& message) = 0;
   virtual void error(const std::string& message) = 0;
@@ -15,6 +16,8 @@ class Logger {
 
 Logger& default_logger();
 =======
+=======
+>>>>>>> theirs
   virtual void on_batch(int epoch,
                         int batch,
                         float loss,
@@ -27,6 +30,9 @@ Logger& default_logger();
 Logger& default_logger();
 void configure_default_logger(int log_interval);
 void configure_default_logger(const std::string& csv_path, int log_interval);
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur

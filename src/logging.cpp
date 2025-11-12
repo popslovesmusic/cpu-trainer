@@ -1,6 +1,7 @@
 #include "surrogate/logging.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 namespace {
@@ -18,6 +19,8 @@ Logger& default_logger() {
 }
 
 =======
+=======
+>>>>>>> theirs
 #include <filesystem>
 #include <fstream>
 #include <iomanip>
@@ -122,6 +125,9 @@ void configure_default_logger(const std::string& csv_path, int log_interval) {
   get_default_logger().configure(csv_path, log_interval);
 }
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 }  // namespace sur
 
