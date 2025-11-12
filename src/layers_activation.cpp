@@ -2,9 +2,12 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #include <stdexcept>
@@ -90,6 +93,9 @@ Tensor<float> Sigmoid::backward(const Tensor<float>& dy) {
 }
 
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

@@ -2,6 +2,7 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
 #include <vector>
 
@@ -10,6 +11,8 @@ namespace sur {
 template <class T>
 class Tensor;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #include <array>
@@ -23,6 +26,9 @@ class Tensor;
 
 namespace sur {
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -32,9 +38,12 @@ class Layer {
   virtual ~Layer() = default;
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   virtual void forward() = 0;
   virtual void backward() = 0;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
   virtual Tensor<float> forward(const Tensor<float>& x) = 0;
@@ -43,6 +52,9 @@ class Layer {
   virtual std::span<Tensor<float>*> grads() noexcept { return {}; }
   virtual void reserve_workspaces(int /*max_batch*/) {}
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -52,8 +64,11 @@ using LayerPtr = std::unique_ptr<Layer>;
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 std::vector<LayerPtr> create_default_layers();
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 class Dense final : public Layer {
@@ -130,6 +145,9 @@ class Sigmoid final : public Layer {
   bool has_cache_ = false;
 };
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

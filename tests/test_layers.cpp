@@ -1,9 +1,12 @@
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #include <cassert>
@@ -148,6 +151,9 @@ int main() {
   return 0;
 }
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

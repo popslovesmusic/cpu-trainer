@@ -1,6 +1,7 @@
 #include "surrogate/loss.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 Loss* create_mse_loss() {
@@ -8,6 +9,8 @@ Loss* create_mse_loss() {
 }
 
 =======
+=======
+>>>>>>> theirs
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -134,6 +137,9 @@ std::unique_ptr<Loss> make_mse() { return std::make_unique<MSE>(); }
 
 std::unique_ptr<Loss> make_mae() { return std::make_unique<MAE>(); }
 
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 }  // namespace sur
 

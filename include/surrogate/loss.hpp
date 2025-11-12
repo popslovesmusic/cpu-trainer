@@ -1,6 +1,7 @@
 #pragma once
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 class Loss {
@@ -12,6 +13,8 @@ class Loss {
 
 Loss* create_mse_loss();
 =======
+=======
+>>>>>>> theirs
 #include <memory>
 
 namespace sur {
@@ -40,6 +43,9 @@ class MAE final : public Loss {
 
 std::unique_ptr<Loss> make_mse();
 std::unique_ptr<Loss> make_mae();
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur
