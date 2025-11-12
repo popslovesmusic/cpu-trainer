@@ -1,0 +1,78 @@
+=== src/aligned_alloc.cpp ===
+
+=== src/dataloader.cpp ===
+
+=== src/layers_activation.cpp ===
+
+=== src/layers_dense.cpp ===
+
+=== src/logging.cpp ===
+
+=== src/loss.cpp ===
+1 warning generated.
+/workspace/cpu-trainer/src/loss.cpp:41:28: warning: Method called on moved-from object 'copy' [clang-analyzer-cplusplus.Move]
+   41 |   return {std::move(copy), copy.data()};
+      |                            ^
+/workspace/cpu-trainer/src/loss.cpp:103:22: note: Calling 'make_contiguous'
+  103 |   auto pred_contig = make_contiguous(prediction);
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/cpu-trainer/src/loss.cpp:37:7: note: Assuming the condition is false
+   37 |   if (tensor.is_contiguous()) {
+      |       ^~~~~~~~~~~~~~~~~~~~~~
+/workspace/cpu-trainer/src/loss.cpp:37:3: note: Taking false branch
+   37 |   if (tensor.is_contiguous()) {
+      |   ^
+/workspace/cpu-trainer/src/loss.cpp:41:11: note: Object 'copy' is moved
+   41 |   return {std::move(copy), copy.data()};
+      |           ^~~~~~~~~~~~~~~
+/workspace/cpu-trainer/src/loss.cpp:41:28: note: Method called on moved-from object 'copy'
+   41 |   return {std::move(copy), copy.data()};
+      |                            ^~~~~~~~~~~
+
+=== src/mathkernels_avx2.cpp ===
+
+=== src/mathkernels_ref.cpp ===
+
+=== src/model.cpp ===
+
+=== src/optimizer_adam.cpp ===
+
+=== src/optimizer_sgd.cpp ===
+
+=== src/persist.cpp ===
+
+=== src/trainer.cpp ===
+1 error generated.
+Error while processing /workspace/cpu-trainer/src/trainer.cpp.
+/workspace/cpu-trainer/src/trainer.cpp:12:10: error: 'omp.h' file not found [clang-diagnostic-error]
+   12 | #include <omp.h>
+      |          ^~~~~~~
+
+=== tests/test_dataloader.cpp ===
+
+=== tests/test_gradcheck.cpp ===
+
+=== tests/test_layers.cpp ===
+
+=== tests/test_logging.cpp ===
+
+=== tests/test_loss.cpp ===
+
+=== tests/test_mathkernels.cpp ===
+
+=== tests/test_model.cpp ===
+
+=== tests/test_optimizer.cpp ===
+
+=== tests/test_persist.cpp ===
+
+=== tests/test_tensor.cpp ===
+
+=== tests/test_trainer.cpp ===
+
+=== bench/bench_elemwise.cpp ===
+
+=== bench/bench_gemm.cpp ===
+
+=== examples/example_mlp.cpp ===
+

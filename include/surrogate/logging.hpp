@@ -15,6 +15,7 @@ class Logger {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   virtual void info(const std::string& message) = 0;
   virtual void warn(const std::string& message) = 0;
   virtual void error(const std::string& message) = 0;
@@ -22,6 +23,8 @@ class Logger {
 
 Logger& default_logger();
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -55,6 +58,9 @@ void configure_default_logger(const std::string& csv_path, int log_interval);
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

@@ -11,6 +11,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
 
 namespace sur {
@@ -69,6 +70,11 @@ void Trainer::train(const TrainerConfig&) {}
 #include <cstddef>
 #include <cmath>
 >>>>>>> theirs
+=======
+#include <chrono>
+#include <cstddef>
+#include <cmath>
+>>>>>>> theirs
 #include <span>
 #include <stdexcept>
 #include <utility>
@@ -87,6 +93,10 @@ void Trainer::train(const TrainerConfig&) {}
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include "surrogate/logging.hpp"
+>>>>>>> theirs
 =======
 #include "surrogate/logging.hpp"
 >>>>>>> theirs
@@ -147,7 +157,10 @@ void validate_config(const TrainConfig& config) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -185,6 +198,9 @@ float compute_gradient_norm(std::span<Tensor<float>* const> grads) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -239,10 +255,13 @@ void Trainer::train(Model& model,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   }
 #endif
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -269,6 +288,9 @@ void Trainer::train(Model& model,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -317,10 +339,13 @@ void Trainer::train(Model& model,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   for (int epoch = 0; epoch < config.epochs; ++epoch) {
     dataloader.reset();
     while (dataloader.next_batch(batch_inputs, batch_targets)) {
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -358,6 +383,9 @@ void Trainer::train(Model& model,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -396,7 +424,11 @@ void Trainer::train(Model& model,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
       [[maybe_unused]] const float loss_value = loss.compute(predictions, batch_targets);
+=======
+      const float loss_value = loss.compute(predictions, batch_targets);
+>>>>>>> theirs
 =======
       const float loss_value = loss.compute(predictions, batch_targets);
 >>>>>>> theirs
@@ -435,6 +467,7 @@ void Trainer::train(Model& model,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
       optimizer.step(params, grads);
     }
   }
@@ -447,6 +480,8 @@ void Trainer::train(Model& model,
 =======
 >>>>>>> theirs
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -493,6 +528,9 @@ void Trainer::train(Model& model,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
