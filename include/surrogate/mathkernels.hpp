@@ -11,9 +11,12 @@ void axpy_ref(float a, const float* x, float* y, int n);
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 }  // namespace sur::kernels
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 void relu_ref(float* y, const float* x, int n);
@@ -26,9 +29,12 @@ void sigmoid_bw_ref(float* dx, const float* dy, const float* y, int n);
 float reduce_sum_ref(const float* x, int n);
 
 <<<<<<< ours
+<<<<<<< ours
 }  // namespace sur::kernels
 >>>>>>> theirs
 =======
+=======
+>>>>>>> theirs
 bool has_avx2();
 
 void gemm(int M, int N, int K, const float* A, int lda, const float* B, int ldb, float* C, int ldc, float beta);
@@ -46,4 +52,7 @@ void sigmoid_bw(float* dx, const float* dy, const float* y, int n);
 float reduce_sum(const float* x, int n);
 
 }  // namespace sur::kernels
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs

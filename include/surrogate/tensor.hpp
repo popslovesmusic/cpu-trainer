@@ -3,12 +3,15 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <array>
 #include <cstddef>
 #include <span>
 #include <utility>
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -26,6 +29,9 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -40,11 +46,14 @@ class Tensor {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 
   Tensor() = default;
   Tensor(T* data, std::size_t size, std::array<int, 4> shape, std::array<int, 4> strides, bool row_major = true)
       : data_(data), size_(size), shape_(shape), strides_(strides), offset_(0), row_major_(row_major) {}
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -70,6 +79,9 @@ class Tensor {
       : Tensor(std::span<const int>(dims.begin(), dims.size()), row_major) {}
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -87,11 +99,14 @@ class Tensor {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
         row_major_(other.row_major_) {}
 
   Tensor& operator=(Tensor&& other) noexcept {
     if (this != &other) {
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -104,6 +119,9 @@ class Tensor {
       release();
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -118,6 +136,10 @@ class Tensor {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+      owning_ = std::exchange(other.owning_, false);
+>>>>>>> theirs
 =======
       owning_ = std::exchange(other.owning_, false);
 >>>>>>> theirs
@@ -131,6 +153,7 @@ class Tensor {
     return *this;
   }
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -155,6 +178,8 @@ class Tensor {
  private:
   T* data_ = nullptr;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -349,6 +374,9 @@ class Tensor {
   pointer data_ = nullptr;
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -362,6 +390,10 @@ class Tensor {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  bool owning_ = false;
+>>>>>>> theirs
 =======
   bool owning_ = false;
 >>>>>>> theirs
@@ -375,6 +407,7 @@ class Tensor {
 
 }  // namespace sur
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -394,6 +427,8 @@ TensorView<const T> make_view(const Tensor<T>& tensor) {
 
 }  // namespace sur
 
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======

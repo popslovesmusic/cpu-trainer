@@ -12,6 +12,7 @@ class TensorView {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 
   TensorView() = default;
   TensorView(T* data, std::array<int, 4> shape, std::array<int, 4> strides, std::size_t offset = 0) noexcept
@@ -28,6 +29,8 @@ class TensorView {
   std::array<int, 4> strides_{};
   std::size_t offset_ = 0;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -87,6 +90,9 @@ class TensorView {
   bool row_major_ = true;
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

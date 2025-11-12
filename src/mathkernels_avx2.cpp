@@ -1,10 +1,13 @@
 #include "surrogate/mathkernels.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur::kernels {
 
 // AVX2 implementations will be provided in later phases.
 =======
+=======
+>>>>>>> theirs
 #include <algorithm>
 #include <cmath>
 #include <cstddef>
@@ -534,6 +537,9 @@ float reduce_sum(const float* x, int n) {
 #endif
   return reduce_sum_ref(x, n);
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur::kernels
