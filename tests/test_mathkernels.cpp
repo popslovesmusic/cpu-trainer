@@ -1,9 +1,12 @@
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
 
 =======
+=======
+>>>>>>> theirs
 #include <algorithm>
 #include <cassert>
 #include <cmath>
@@ -58,10 +61,27 @@ void test_gemm() {
     }
   }
 
+<<<<<<< ours
   sur::kernels::gemm_ref(M, N, K, A.data(), lda, B.data(), ldb, C.data(), ldc, beta);
 
   for (int i = 0; i < M * ldc; ++i) {
     expect_close(C[i], expected[i]);
+=======
+  {
+    std::vector<float> C_ref = C;
+    sur::kernels::gemm_ref(M, N, K, A.data(), lda, B.data(), ldb, C_ref.data(), ldc, beta);
+    for (int i = 0; i < M * ldc; ++i) {
+      expect_close(C_ref[i], expected[i]);
+    }
+  }
+
+  {
+    std::vector<float> C_fast = C;
+    sur::kernels::gemm(M, N, K, A.data(), lda, B.data(), ldb, C_fast.data(), ldc, beta);
+    for (int i = 0; i < M * ldc; ++i) {
+      expect_close(C_fast[i], expected[i]);
+    }
+>>>>>>> theirs
   }
 }
 
@@ -95,10 +115,27 @@ void test_gemv() {
     expected[m * incy] = acc + beta * expected[m * incy];
   }
 
+<<<<<<< ours
   sur::kernels::gemv_ref(M, N, A.data(), lda, x.data(), incx, y.data(), incy, beta);
 
   for (int i = 0; i < M * incy; ++i) {
     expect_close(y[i], expected[i]);
+=======
+  {
+    std::vector<float> y_ref = y;
+    sur::kernels::gemv_ref(M, N, A.data(), lda, x.data(), incx, y_ref.data(), incy, beta);
+    for (int i = 0; i < M * incy; ++i) {
+      expect_close(y_ref[i], expected[i]);
+    }
+  }
+
+  {
+    std::vector<float> y_fast = y;
+    sur::kernels::gemv(M, N, A.data(), lda, x.data(), incx, y_fast.data(), incy, beta);
+    for (int i = 0; i < M * incy; ++i) {
+      expect_close(y_fast[i], expected[i]);
+    }
+>>>>>>> theirs
   }
 }
 
@@ -116,15 +153,36 @@ void test_dot_axpy() {
     expected_dot += x[i] * y[i];
   }
   expect_close(sur::kernels::dot_ref(x.data(), y.data(), n), expected_dot);
+<<<<<<< ours
+=======
+  expect_close(sur::kernels::dot(x.data(), y.data(), n), expected_dot);
+>>>>>>> theirs
 
   const float a = 0.5f;
   std::vector<float> expected = y;
   for (int i = 0; i < n; ++i) {
     expected[i] += a * x[i];
   }
+<<<<<<< ours
   sur::kernels::axpy_ref(a, x.data(), y.data(), n);
   for (int i = 0; i < n; ++i) {
     expect_close(y[i], expected[i]);
+=======
+  {
+    std::vector<float> y_ref = y;
+    sur::kernels::axpy_ref(a, x.data(), y_ref.data(), n);
+    for (int i = 0; i < n; ++i) {
+      expect_close(y_ref[i], expected[i]);
+    }
+  }
+
+  {
+    std::vector<float> y_fast = y;
+    sur::kernels::axpy(a, x.data(), y_fast.data(), n);
+    for (int i = 0; i < n; ++i) {
+      expect_close(y_fast[i], expected[i]);
+    }
+>>>>>>> theirs
   }
 }
 
@@ -135,6 +193,7 @@ void test_activations() {
   std::vector<float> dy{1.0f, -1.0f, 0.5f, -0.25f, 2.0f};
   std::vector<float> dx(n);
 
+<<<<<<< ours
   sur::kernels::relu_ref(y.data(), x.data(), n);
   std::vector<float> expected_relu{0.0f, 0.0f, 0.0f, 0.2f, 3.5f};
   for (int i = 0; i < n; ++i) {
@@ -168,6 +227,92 @@ void test_activations() {
   for (int i = 0; i < n; ++i) {
     float expected = dy[i] * y[i] * (1.0f - y[i]);
     expect_close(dx[i], expected);
+=======
+  std::vector<float> expected_relu{0.0f, 0.0f, 0.0f, 0.2f, 3.5f};
+  {
+    std::vector<float> y_ref(n);
+    sur::kernels::relu_ref(y_ref.data(), x.data(), n);
+    for (int i = 0; i < n; ++i) {
+      expect_close(y_ref[i], expected_relu[i]);
+    }
+
+    std::vector<float> y_fast(n);
+    sur::kernels::relu(y_fast.data(), x.data(), n);
+    for (int i = 0; i < n; ++i) {
+      expect_close(y_fast[i], expected_relu[i]);
+    }
+
+    std::vector<float> dx_ref(n);
+    sur::kernels::relu_bw_ref(dx_ref.data(), dy.data(), y_ref.data(), n);
+    std::vector<float> expected_relu_bw{0.0f, 0.0f, 0.0f, -0.25f, 2.0f};
+    for (int i = 0; i < n; ++i) {
+      expect_close(dx_ref[i], expected_relu_bw[i]);
+    }
+
+    std::vector<float> dx_fast(n);
+    sur::kernels::relu_bw(dx_fast.data(), dy.data(), y_fast.data(), n);
+    for (int i = 0; i < n; ++i) {
+      expect_close(dx_fast[i], expected_relu_bw[i]);
+    }
+  }
+
+  {
+    std::vector<float> y_ref(n);
+    sur::kernels::tanh_ref(y_ref.data(), x.data(), n);
+    for (int i = 0; i < n; ++i) {
+      expect_close(y_ref[i], std::tanh(x[i]));
+    }
+
+    std::vector<float> y_fast(n);
+    sur::kernels::tanh(y_fast.data(), x.data(), n);
+    for (int i = 0; i < n; ++i) {
+      expect_close(y_fast[i], std::tanh(x[i]));
+    }
+
+    std::vector<float> dx_ref(n);
+    sur::kernels::tanh_bw_ref(dx_ref.data(), dy.data(), y_ref.data(), n);
+    for (int i = 0; i < n; ++i) {
+      float expected = dy[i] * (1.0f - y_ref[i] * y_ref[i]);
+      expect_close(dx_ref[i], expected);
+    }
+
+    std::vector<float> dx_fast(n);
+    sur::kernels::tanh_bw(dx_fast.data(), dy.data(), y_fast.data(), n);
+    for (int i = 0; i < n; ++i) {
+      float expected = dy[i] * (1.0f - y_fast[i] * y_fast[i]);
+      expect_close(dx_fast[i], expected);
+    }
+  }
+
+  {
+    std::vector<float> y_ref(n);
+    sur::kernels::sigmoid_ref(y_ref.data(), x.data(), n);
+    for (int i = 0; i < n; ++i) {
+      float expected = 1.0f / (1.0f + std::exp(-x[i]));
+      expect_close(y_ref[i], expected);
+    }
+
+    std::vector<float> y_fast(n);
+    sur::kernels::sigmoid(y_fast.data(), x.data(), n);
+    for (int i = 0; i < n; ++i) {
+      float expected = 1.0f / (1.0f + std::exp(-x[i]));
+      expect_close(y_fast[i], expected);
+    }
+
+    std::vector<float> dx_ref(n);
+    sur::kernels::sigmoid_bw_ref(dx_ref.data(), dy.data(), y_ref.data(), n);
+    for (int i = 0; i < n; ++i) {
+      float expected = dy[i] * y_ref[i] * (1.0f - y_ref[i]);
+      expect_close(dx_ref[i], expected);
+    }
+
+    std::vector<float> dx_fast(n);
+    sur::kernels::sigmoid_bw(dx_fast.data(), dy.data(), y_fast.data(), n);
+    for (int i = 0; i < n; ++i) {
+      float expected = dy[i] * y_fast[i] * (1.0f - y_fast[i]);
+      expect_close(dx_fast[i], expected);
+    }
+>>>>>>> theirs
   }
 }
 
@@ -178,6 +323,10 @@ void test_reduce_sum() {
     expected += v;
   }
   expect_close(sur::kernels::reduce_sum_ref(values.data(), static_cast<int>(values.size())), expected);
+<<<<<<< ours
+=======
+  expect_close(sur::kernels::reduce_sum(values.data(), static_cast<int>(values.size())), expected);
+>>>>>>> theirs
 }
 
 }  // namespace
@@ -190,4 +339,7 @@ int main() {
   test_reduce_sum();
   return 0;
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs

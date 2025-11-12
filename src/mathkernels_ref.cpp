@@ -1,6 +1,7 @@
 #include "surrogate/mathkernels.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur::kernels {
 
 void gemm_ref(int, int, int, const float*, int, const float*, int, float*, int, float) {}
@@ -14,6 +15,8 @@ void axpy_ref(float, const float*, float*, int) {}
 }  // namespace sur::kernels
 
 =======
+=======
+>>>>>>> theirs
 #include <algorithm>
 #include <cmath>
 #include <limits>
@@ -122,4 +125,7 @@ float reduce_sum_ref(const float* x, int n) {
 }
 
 }  // namespace sur::kernels
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs

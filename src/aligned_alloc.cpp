@@ -3,6 +3,10 @@
 #include <cstdlib>
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include <new>
+>>>>>>> theirs
 =======
 #include <new>
 >>>>>>> theirs
@@ -19,12 +23,15 @@ namespace sur {
 void* aligned_malloc(std::size_t bytes, std::size_t alignment) {
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #if defined(_MSC_VER)
   return _aligned_malloc(bytes, alignment);
 #else
   (void)alignment;
   return std::malloc(bytes);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
   if (bytes == 0) {
@@ -61,6 +68,9 @@ void* aligned_malloc(std::size_t bytes, std::size_t alignment) {
   }
   return ptr;
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

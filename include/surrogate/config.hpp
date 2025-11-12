@@ -11,5 +11,16 @@ struct RuntimeConfig {
   bool enable_avx2 = false;
 };
 
+<<<<<<< ours
+=======
+namespace config {
+
+inline constexpr int kGemmBlockMC = 256;
+inline constexpr int kGemmBlockNC = 128;
+inline constexpr int kGemmBlockKC = 256;
+
+}  // namespace config
+
+>>>>>>> theirs
 }  // namespace sur
 
