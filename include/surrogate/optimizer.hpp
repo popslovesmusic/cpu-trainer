@@ -12,6 +12,11 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include <cstddef>
+#include <span>
+>>>>>>> theirs
 =======
 #include <cstddef>
 #include <span>
@@ -82,10 +87,13 @@ class Optimizer {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   virtual void step(const std::vector<Tensor<float>*>& params,
                     const std::vector<Tensor<float>*>& grads) = 0;
   virtual void zero_grad(const std::vector<Tensor<float>*>& grads) = 0;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -120,6 +128,10 @@ class Optimizer {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  [[nodiscard]] virtual float current_lr() const noexcept = 0;
+>>>>>>> theirs
 =======
   [[nodiscard]] virtual float current_lr() const noexcept = 0;
 >>>>>>> theirs
@@ -158,6 +170,10 @@ class SGD : public Optimizer {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  [[nodiscard]] float current_lr() const noexcept override { return lr_; }
+>>>>>>> theirs
 =======
   [[nodiscard]] float current_lr() const noexcept override { return lr_; }
 >>>>>>> theirs
@@ -214,6 +230,10 @@ class Adam : public Optimizer {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  [[nodiscard]] float current_lr() const noexcept override { return lr_; }
+>>>>>>> theirs
 =======
   [[nodiscard]] float current_lr() const noexcept override { return lr_; }
 >>>>>>> theirs
@@ -272,6 +292,9 @@ class Adam : public Optimizer {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

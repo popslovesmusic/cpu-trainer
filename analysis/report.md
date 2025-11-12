@@ -17,3 +17,13 @@
 
 ## Summary
 All build presets configure successfully, tests pass under sanitizers and AVX2 release, and benchmarks confirm substantial speedups for optimized kernels.
+<<<<<<< ours
+=======
+
+## Done-When Checklist
+- ✅ All unit tests pass in Debug-Sanitize and Release-AVX2 presets with sanitizers and AVX2 optimizations enabled.
+- ✅ Benchmarks demonstrate AVX2 kernels exceeding the performance targets relative to reference implementations.
+- ✅ Example MLP trains end-to-end using the shared trainer, optimizer, and dataloader stack with persistence round-tripping enabled.
+- ✅ Layer forward/backward paths execute without additional allocations after warm-up due to pre-reserved workspaces.
+- ✅ Deterministic mode enforces fixed threading, seeded dataloaders, and reproducible loss curves on repeated runs.
+>>>>>>> theirs

@@ -11,7 +11,10 @@ include(GNUInstallDirs)
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -91,6 +94,9 @@ endif()
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -132,7 +138,10 @@ target_compile_options(surrogate PRIVATE
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -157,6 +166,7 @@ elseif(SUR_ENABLE_AVX2)
   message(WARNING "AVX2 requested but the compiler does not support it; falling back to portable kernels.")
 endif()
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -245,6 +255,8 @@ target_link_libraries(surrogate_bench PRIVATE surrogate)
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
 set(SURROGATE_TEST_SOURCES
     test_tensor
     test_mathkernels
@@ -281,6 +293,9 @@ add_dependencies(surrogate_bench
 )
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -305,7 +320,13 @@ if(BUILD_TESTING)
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
     add_test(NAME surrogate_tests COMMAND surrogate_tests)
+=======
+    foreach(test_target IN LISTS SURROGATE_TEST_TARGETS)
+        add_test(NAME ${test_target} COMMAND ${test_target})
+    endforeach()
+>>>>>>> theirs
 =======
     foreach(test_target IN LISTS SURROGATE_TEST_TARGETS)
         add_test(NAME ${test_target} COMMAND ${test_target})
