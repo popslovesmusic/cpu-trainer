@@ -1,8 +1,11 @@
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
 =======
+=======
+>>>>>>> theirs
 #include <chrono>
 #include <cmath>
 #include <cstdint>
@@ -133,5 +136,8 @@ int main() {
 
   return 0;
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 

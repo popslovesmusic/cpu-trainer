@@ -11,6 +11,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <vector>
 
 #include "surrogate/layers.hpp"
@@ -21,6 +22,8 @@ template <class T>
 class Tensor;
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -57,6 +60,7 @@ namespace sur {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -68,6 +72,11 @@ namespace sur {
 >>>>>>> theirs
 struct Model::Impl {
   std::vector<std::unique_ptr<Layer>> layers;
+=======
+struct Model::Impl {
+  std::vector<std::unique_ptr<Layer>> layers;
+  std::vector<Tensor<float>> activations;
+>>>>>>> theirs
 =======
 struct Model::Impl {
   std::vector<std::unique_ptr<Layer>> layers;
@@ -108,6 +117,7 @@ Model::~Model() = default;
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 void Model::add_layer(std::unique_ptr<Layer> layer) {
   impl_->layers.emplace_back(std::move(layer));
 }
@@ -119,6 +129,8 @@ std::vector<Tensor<float>*> Model::parameters() {
 std::vector<Tensor<float>*> Model::gradients() {
   return {};
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -151,6 +163,7 @@ Tensor<float> Model::forward(const Tensor<float>& input) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   const Tensor<float>* current = &input;
   Tensor<float> activation;
   for (auto& layer : impl_->layers) {
@@ -161,6 +174,8 @@ Tensor<float> Model::forward(const Tensor<float>& input) {
 
   return activation;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -182,6 +197,9 @@ Tensor<float> Model::forward(const Tensor<float>& input) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -251,6 +269,7 @@ void Model::reserve_workspaces(int max_batch) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -259,6 +278,8 @@ void Model::reserve_workspaces(int max_batch) {
 }
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -291,6 +312,9 @@ const std::vector<std::unique_ptr<Layer>>& access_layers(const Model& model) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

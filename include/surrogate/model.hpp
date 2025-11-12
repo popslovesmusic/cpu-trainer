@@ -7,6 +7,10 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include <filesystem>
+>>>>>>> theirs
 =======
 #include <filesystem>
 >>>>>>> theirs
@@ -45,7 +49,10 @@ class Tensor;
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -71,6 +78,9 @@ const std::vector<std::unique_ptr<Layer>>& access_layers(const Model& model);
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -99,11 +109,14 @@ class Model {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   void add_layer(std::unique_ptr<Layer> layer);
   std::vector<Tensor<float>*> parameters();
   std::vector<Tensor<float>*> gradients();
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -141,6 +154,7 @@ class Model {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -150,6 +164,8 @@ class Model {
   struct Impl;
   std::unique_ptr<Impl> impl_;
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -176,6 +192,9 @@ class Model {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
