@@ -4,7 +4,10 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -18,6 +21,7 @@ class DataLoader;
 class Loss;
 class Model;
 class Optimizer;
+<<<<<<< ours
 
 <<<<<<< ours
 <<<<<<< ours
@@ -32,6 +36,10 @@ struct TrainerConfig {
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+class Logger;
+
+>>>>>>> theirs
 struct TrainConfig {
   int epochs = 1;
   int batch_size = 1;
@@ -40,15 +48,20 @@ struct TrainConfig {
   int log_every = 0;
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 >>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
+>>>>>>> theirs
+=======
+  Logger* logger = nullptr;
 >>>>>>> theirs
 };
 
 class Trainer {
  public:
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -65,6 +78,8 @@ class Trainer {
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
   Trainer() = default;
 
   void train(Model& model,
@@ -74,6 +89,9 @@ class Trainer {
              const TrainConfig& config);
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

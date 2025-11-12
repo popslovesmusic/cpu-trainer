@@ -1,12 +1,15 @@
 #include "surrogate/persist.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 void save_model(const Model&, const std::filesystem::path&) {}
 
 void load_model(Model&, const std::filesystem::path&) {}
 =======
+=======
+>>>>>>> theirs
 #include <bit>
 #include <cstdint>
 #include <cstring>
@@ -214,6 +217,9 @@ void load(Model& model, const std::filesystem::path& path) {
     }
   }
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur

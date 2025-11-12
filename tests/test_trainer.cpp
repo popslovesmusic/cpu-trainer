@@ -1,6 +1,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
@@ -9,6 +10,11 @@ int main() { return EXIT_SUCCESS; }
 #include <cassert>
 #include <cmath>
 #include <vector>
+=======
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+>>>>>>> theirs
 =======
 #include <algorithm>
 #include <cassert>
@@ -30,6 +36,7 @@ int main() { return EXIT_SUCCESS; }
 
 namespace {
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 class SyntheticLoader final : public sur::DataLoader {
@@ -127,6 +134,8 @@ class SyntheticLoader final : public sur::DataLoader {
 =======
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
 void fill_linear_dataset(sur::Tensor<float>& inputs,
                          sur::Tensor<float>& targets,
                          float weight,
@@ -146,6 +155,9 @@ void fill_linear_dataset(sur::Tensor<float>& inputs,
   }
 }
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -166,8 +178,11 @@ void test_trainer_reduces_loss() {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   SyntheticLoader loader(input_dim, output_dim, total_samples, batch_size, 2.0f, -1.0f);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
   sur::Tensor<float> loader_inputs({input_dim, total_samples});
@@ -180,6 +195,9 @@ void test_trainer_reduces_loss() {
 
   sur::TensorDataLoader loader(std::move(loader_inputs), std::move(loader_targets), batch_size, true, 1337u);
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -196,11 +214,17 @@ void test_trainer_reduces_loss() {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   sur::Tensor<float> full_inputs = loader.full_inputs();
   sur::Tensor<float> full_targets = loader.full_targets();
   model.reserve_workspaces(total_samples);
 
   const float initial_loss = compute_loss(model, loss, full_inputs, full_targets);
+=======
+  model.reserve_workspaces(total_samples);
+
+  const float initial_loss = compute_loss(model, loss, eval_inputs, eval_targets);
+>>>>>>> theirs
 =======
   model.reserve_workspaces(total_samples);
 
@@ -223,7 +247,11 @@ void test_trainer_reduces_loss() {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   const float final_loss = compute_loss(model, loss, full_inputs, full_targets);
+=======
+  const float final_loss = compute_loss(model, loss, eval_inputs, eval_targets);
+>>>>>>> theirs
 =======
   const float final_loss = compute_loss(model, loss, eval_inputs, eval_targets);
 >>>>>>> theirs
@@ -242,6 +270,9 @@ int main() {
 }
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

@@ -2,8 +2,11 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #include <algorithm>
@@ -130,6 +133,9 @@ void TensorDataLoader::prepare_indices() {
   cursor_ = 0;
 }
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

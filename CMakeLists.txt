@@ -47,6 +47,7 @@ add_executable(surrogate_tests
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
     tests/test_loss.cpp
 >>>>>>> theirs
@@ -65,6 +66,8 @@ add_executable(surrogate_tests
     tests/test_model.cpp
 >>>>>>> theirs
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
     tests/test_loss.cpp
@@ -72,6 +75,10 @@ add_executable(surrogate_tests
     tests/test_model.cpp
     tests/test_dataloader.cpp
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+    tests/test_persist.cpp
 >>>>>>> theirs
 =======
     tests/test_persist.cpp

@@ -3,6 +3,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
 
 namespace sur {
@@ -21,6 +22,11 @@ void Trainer::train(const TrainerConfig&) {}
 =======
 >>>>>>> theirs
 #include <cstddef>
+=======
+#include <chrono>
+#include <cstddef>
+#include <cmath>
+>>>>>>> theirs
 #include <span>
 #include <stdexcept>
 #include <utility>
@@ -31,6 +37,10 @@ void Trainer::train(const TrainerConfig&) {}
 #endif
 
 #include "surrogate/dataloader.hpp"
+<<<<<<< ours
+=======
+#include "surrogate/logging.hpp"
+>>>>>>> theirs
 #include "surrogate/loss.hpp"
 #include "surrogate/model.hpp"
 #include "surrogate/optimizer.hpp"
@@ -59,6 +69,25 @@ void validate_config(const TrainConfig& config) {
   }
 }
 
+<<<<<<< ours
+=======
+float compute_gradient_norm(std::span<Tensor<float>* const> grads) {
+  double sum = 0.0;
+  for (Tensor<float>* grad : grads) {
+    if (!grad) {
+      continue;
+    }
+    const float* data = grad->data();
+    const std::size_t size = grad->size();
+    for (std::size_t i = 0; i < size; ++i) {
+      const double value = static_cast<double>(data[i]);
+      sum += value * value;
+    }
+  }
+  return static_cast<float>(std::sqrt(sum));
+}
+
+>>>>>>> theirs
 void scale_gradients(std::span<Tensor<float>* const> grads,
                      float scale,
                      int threads) {
@@ -124,9 +153,28 @@ void Trainer::train(Model& model,
   Tensor<float> batch_inputs;
   Tensor<float> batch_targets;
 
+<<<<<<< ours
   for (int epoch = 0; epoch < config.epochs; ++epoch) {
     dataloader.reset();
     while (dataloader.next_batch(batch_inputs, batch_targets)) {
+=======
+  Logger* active_logger = config.logger;
+  if (!active_logger) {
+    if (config.log_every > 0) {
+      configure_default_logger(config.log_every);
+    } else {
+      configure_default_logger(0);
+    }
+    active_logger = &default_logger();
+  }
+
+  int global_batch = 0;
+
+  for (int epoch = 0; epoch < config.epochs; ++epoch) {
+    dataloader.reset();
+    while (dataloader.next_batch(batch_inputs, batch_targets)) {
+      const auto batch_start = std::chrono::steady_clock::now();
+>>>>>>> theirs
       const auto& input_shape = batch_inputs.shape();
       const auto& target_shape = batch_targets.shape();
       if (input_shape[1] <= 0) {
@@ -142,13 +190,18 @@ void Trainer::train(Model& model,
       model.reserve_workspaces(input_shape[1]);
 
       Tensor<float> predictions = model.forward(batch_inputs);
+<<<<<<< ours
       [[maybe_unused]] const float loss_value = loss.compute(predictions, batch_targets);
+=======
+      const float loss_value = loss.compute(predictions, batch_targets);
+>>>>>>> theirs
       Tensor<float> loss_grad = loss.gradient(predictions, batch_targets);
       model.backward(loss_grad);
 
       const float scale = 1.0f / static_cast<float>(input_shape[1]);
       scale_gradients(grads, scale, threads);
 
+<<<<<<< ours
       optimizer.step(params, grads);
     }
   }
@@ -159,6 +212,33 @@ void Trainer::train(Model& model,
 =======
 >>>>>>> theirs
 =======
+>>>>>>> theirs
+=======
+      const float grad_norm = compute_gradient_norm(grads);
+
+      const double elapsed_ms = std::chrono::duration<double, std::milli>(
+                                     std::chrono::steady_clock::now() - batch_start)
+                                     .count();
+
+      optimizer.step(params, grads);
+
+      if (active_logger) {
+        active_logger->on_batch(epoch,
+                                global_batch,
+                                loss_value,
+                                optimizer.current_lr(),
+                                grad_norm,
+                                elapsed_ms);
+      }
+
+      ++global_batch;
+    }
+  }
+
+  if (active_logger) {
+    active_logger->flush();
+  }
+}
 >>>>>>> theirs
 
 }  // namespace sur
