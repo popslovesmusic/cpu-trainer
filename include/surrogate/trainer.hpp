@@ -2,7 +2,10 @@
 
 #include <cstddef>
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 
@@ -14,23 +17,30 @@ class Model;
 class Optimizer;
 
 <<<<<<< ours
+<<<<<<< ours
 struct TrainerConfig {
   std::size_t epochs = 0;
   std::size_t batch_size = 0;
   int threads = 1;
   unsigned int seed = 42;
 =======
+=======
+>>>>>>> theirs
 struct TrainConfig {
   int epochs = 1;
   int batch_size = 1;
   int threads = 1;
   bool deterministic = false;
   int log_every = 0;
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 };
 
 class Trainer {
  public:
+<<<<<<< ours
 <<<<<<< ours
   Trainer(Model& model, Loss& loss, Optimizer& optimizer, DataLoader& dataloader);
   ~Trainer();
@@ -41,6 +51,8 @@ class Trainer {
   struct Impl;
   std::unique_ptr<Impl> impl_;
 =======
+=======
+>>>>>>> theirs
   Trainer() = default;
 
   void train(Model& model,
@@ -48,6 +60,9 @@ class Trainer {
              Loss& loss,
              DataLoader& dataloader,
              const TrainConfig& config);
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 };
 

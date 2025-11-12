@@ -9,6 +9,10 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include <new>
+>>>>>>> theirs
 =======
 #include <new>
 >>>>>>> theirs
@@ -49,12 +53,15 @@ void* aligned_malloc(std::size_t bytes, std::size_t alignment) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #if defined(_MSC_VER)
   return _aligned_malloc(bytes, alignment);
 #else
   (void)alignment;
   return std::malloc(bytes);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -109,6 +116,9 @@ void* aligned_malloc(std::size_t bytes, std::size_t alignment) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

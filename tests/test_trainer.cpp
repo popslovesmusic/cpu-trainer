@@ -1,4 +1,5 @@
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
@@ -7,6 +8,11 @@ int main() { return EXIT_SUCCESS; }
 #include <cassert>
 #include <cmath>
 #include <vector>
+=======
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+>>>>>>> theirs
 
 #include "surrogate/dataloader.hpp"
 #include "surrogate/layers.hpp"
@@ -18,6 +24,7 @@ int main() { return EXIT_SUCCESS; }
 
 namespace {
 
+<<<<<<< ours
 class SyntheticLoader final : public sur::DataLoader {
  public:
   SyntheticLoader(int input_dim,
@@ -110,6 +117,26 @@ class SyntheticLoader final : public sur::DataLoader {
   std::vector<float> inputs_;
   std::vector<float> targets_;
 };
+=======
+void fill_linear_dataset(sur::Tensor<float>& inputs,
+                         sur::Tensor<float>& targets,
+                         float weight,
+                         float bias) {
+  const int input_dim = inputs.shape()[0];
+  const int output_dim = targets.shape()[0];
+  const int total_samples = inputs.shape()[1];
+  for (int n = 0; n < total_samples; ++n) {
+    const float x = static_cast<float>(n);
+    const float y = weight * x + bias;
+    for (int d = 0; d < input_dim; ++d) {
+      inputs.data()[static_cast<std::size_t>(d) * static_cast<std::size_t>(total_samples) + n] = x;
+    }
+    for (int d = 0; d < output_dim; ++d) {
+      targets.data()[static_cast<std::size_t>(d) * static_cast<std::size_t>(total_samples) + n] = y;
+    }
+  }
+}
+>>>>>>> theirs
 
 float compute_loss(sur::Model& model,
                    const sur::Loss& loss,
@@ -125,7 +152,19 @@ void test_trainer_reduces_loss() {
   constexpr int total_samples = 16;
   constexpr int batch_size = 4;
 
+<<<<<<< ours
   SyntheticLoader loader(input_dim, output_dim, total_samples, batch_size, 2.0f, -1.0f);
+=======
+  sur::Tensor<float> loader_inputs({input_dim, total_samples});
+  sur::Tensor<float> loader_targets({output_dim, total_samples});
+  fill_linear_dataset(loader_inputs, loader_targets, 2.0f, -1.0f);
+
+  sur::Tensor<float> eval_inputs({input_dim, total_samples});
+  sur::Tensor<float> eval_targets({output_dim, total_samples});
+  fill_linear_dataset(eval_inputs, eval_targets, 2.0f, -1.0f);
+
+  sur::TensorDataLoader loader(std::move(loader_inputs), std::move(loader_targets), batch_size, true, 1337u);
+>>>>>>> theirs
 
   sur::Model model;
   auto dense = std::make_unique<sur::Dense>(input_dim, output_dim);
@@ -137,11 +176,17 @@ void test_trainer_reduces_loss() {
   sur::MSE loss;
   sur::Trainer trainer;
 
+<<<<<<< ours
   sur::Tensor<float> full_inputs = loader.full_inputs();
   sur::Tensor<float> full_targets = loader.full_targets();
   model.reserve_workspaces(total_samples);
 
   const float initial_loss = compute_loss(model, loss, full_inputs, full_targets);
+=======
+  model.reserve_workspaces(total_samples);
+
+  const float initial_loss = compute_loss(model, loss, eval_inputs, eval_targets);
+>>>>>>> theirs
 
   sur::TrainConfig config;
   config.epochs = 600;
@@ -152,7 +197,11 @@ void test_trainer_reduces_loss() {
 
   trainer.train(model, optimizer, loss, loader, config);
 
+<<<<<<< ours
   const float final_loss = compute_loss(model, loss, full_inputs, full_targets);
+=======
+  const float final_loss = compute_loss(model, loss, eval_inputs, eval_targets);
+>>>>>>> theirs
   assert(final_loss < initial_loss);
   assert(std::fabs(final_loss) < 1e-2f);
 }
@@ -163,5 +212,8 @@ int main() {
   test_trainer_reduces_loss();
   return 0;
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 

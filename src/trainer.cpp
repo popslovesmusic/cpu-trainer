@@ -1,6 +1,7 @@
 #include "surrogate/trainer.hpp"
 
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
 
 namespace sur {
@@ -14,6 +15,8 @@ Trainer::~Trainer() = default;
 
 void Trainer::train(const TrainerConfig&) {}
 =======
+=======
+>>>>>>> theirs
 #include <cstddef>
 #include <span>
 #include <stdexcept>
@@ -147,6 +150,9 @@ void Trainer::train(Model& model,
     }
   }
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
 }  // namespace sur

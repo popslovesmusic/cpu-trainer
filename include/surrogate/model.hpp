@@ -17,11 +17,14 @@ class Model {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   void add_layer(std::unique_ptr<Layer> layer);
   std::vector<Tensor<float>*> parameters();
   std::vector<Tensor<float>*> gradients();
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
   void add(std::unique_ptr<Layer> layer);
@@ -35,6 +38,9 @@ class Model {
   void reserve_workspaces(int max_batch);
 
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

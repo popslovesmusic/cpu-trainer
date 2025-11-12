@@ -4,6 +4,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 class Loss {
@@ -15,6 +16,8 @@ class Loss {
 
 Loss* create_mse_loss();
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -52,6 +55,9 @@ std::unique_ptr<Loss> make_mae();
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
