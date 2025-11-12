@@ -2,6 +2,7 @@
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 namespace {
@@ -19,6 +20,8 @@ Logger& default_logger() {
 }
 
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 #include <filesystem>
@@ -126,6 +129,9 @@ void configure_default_logger(const std::string& csv_path, int log_interval) {
 }
 
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

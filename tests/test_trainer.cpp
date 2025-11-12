@@ -3,6 +3,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
@@ -11,6 +12,11 @@ int main() { return EXIT_SUCCESS; }
 #include <cassert>
 #include <cmath>
 #include <vector>
+=======
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+>>>>>>> theirs
 =======
 #include <algorithm>
 #include <cassert>
@@ -42,6 +48,7 @@ int main() { return EXIT_SUCCESS; }
 
 namespace {
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -145,6 +152,8 @@ class SyntheticLoader final : public sur::DataLoader {
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
 void fill_linear_dataset(sur::Tensor<float>& inputs,
                          sur::Tensor<float>& targets,
                          float weight,
@@ -166,6 +175,9 @@ void fill_linear_dataset(sur::Tensor<float>& inputs,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -192,8 +204,11 @@ void test_trainer_reduces_loss() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   SyntheticLoader loader(input_dim, output_dim, total_samples, batch_size, 2.0f, -1.0f);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -212,6 +227,9 @@ void test_trainer_reduces_loss() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -230,6 +248,7 @@ void test_trainer_reduces_loss() {
   sur::MSE loss;
   sur::Trainer trainer;
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -259,6 +278,11 @@ void test_trainer_reduces_loss() {
 
   const float initial_loss = compute_loss(model, loss, eval_inputs, eval_targets);
 >>>>>>> theirs
+=======
+  model.reserve_workspaces(total_samples);
+
+  const float initial_loss = compute_loss(model, loss, eval_inputs, eval_targets);
+>>>>>>> theirs
 
   sur::TrainConfig config;
   config.epochs = 600;
@@ -266,6 +290,7 @@ void test_trainer_reduces_loss() {
   config.threads = 2;
   config.deterministic = true;
   config.log_every = 0;
+<<<<<<< ours
 
   trainer.train(model, optimizer, loss, loader, config);
 
@@ -286,6 +311,13 @@ void test_trainer_reduces_loss() {
 =======
   const float final_loss = compute_loss(model, loss, eval_inputs, eval_targets);
 >>>>>>> theirs
+=======
+  config.seed = 1337u;
+
+  trainer.train(model, optimizer, loss, loader, config);
+
+  const float final_loss = compute_loss(model, loss, eval_inputs, eval_targets);
+>>>>>>> theirs
   assert(final_loss < initial_loss);
   assert(std::fabs(final_loss) < 1e-2f);
 }
@@ -300,6 +332,9 @@ int main() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

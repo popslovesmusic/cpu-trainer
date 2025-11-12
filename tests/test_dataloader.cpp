@@ -137,11 +137,67 @@ void test_shuffle_changes_order_across_epochs() {
   assert(epoch_two_order == expected);
 }
 
+<<<<<<< ours
+=======
+void test_setting_seed_resets_sequence() {
+  constexpr int input_dim = 1;
+  constexpr int output_dim = 1;
+  constexpr int total_samples = 6;
+  constexpr int batch_size = 3;
+
+  sur::Tensor<float> loader_inputs({input_dim, total_samples});
+  sur::Tensor<float> loader_targets({output_dim, total_samples});
+  fill_dataset(loader_inputs, loader_targets, 1.0f, 1.0f);
+
+  sur::TensorDataLoader loader(std::move(loader_inputs),
+                               std::move(loader_targets),
+                               batch_size,
+                               true,
+                               321u);
+
+  auto collect_order = [&](std::vector<int>& order) {
+    sur::Tensor<float> batch_inputs;
+    sur::Tensor<float> batch_targets;
+    order.clear();
+    loader.reset();
+    while (loader.next_batch(batch_inputs, batch_targets)) {
+      const int count = batch_inputs.shape()[1];
+      for (int i = 0; i < count; ++i) {
+        order.push_back(static_cast<int>(batch_inputs.data()[i]));
+      }
+    }
+  };
+
+  std::vector<int> first_order;
+  collect_order(first_order);
+
+  std::vector<int> expected(total_samples);
+  std::iota(expected.begin(), expected.end(), 0);
+  std::mt19937 first_rng(321u);
+  std::shuffle(expected.begin(), expected.end(), first_rng);
+  assert(first_order == expected);
+
+  loader.set_seed(777u);
+
+  std::vector<int> second_order;
+  collect_order(second_order);
+
+  std::mt19937 second_rng(777u);
+  std::iota(expected.begin(), expected.end(), 0);
+  std::shuffle(expected.begin(), expected.end(), second_rng);
+  assert(second_order == expected);
+}
+
+>>>>>>> theirs
 }  // namespace
 
 int main() {
   test_aligned_batches_and_sequential_iteration();
   test_shuffle_changes_order_across_epochs();
+<<<<<<< ours
+=======
+  test_setting_seed_resets_sequence();
+>>>>>>> theirs
   return 0;
 }
 

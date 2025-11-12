@@ -4,8 +4,11 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -109,6 +112,15 @@ std::size_t TensorDataLoader::size() const noexcept {
   return static_cast<std::size_t>(total_samples_);
 }
 
+<<<<<<< ours
+=======
+void TensorDataLoader::set_seed(unsigned int seed) {
+  rng_.seed(seed);
+  cursor_ = 0;
+  prepare_indices();
+}
+
+>>>>>>> theirs
 TensorDataLoader::DatasetShape TensorDataLoader::infer_shape() const {
   const auto& input_shape = inputs_.shape();
   const auto& target_shape = targets_.shape();
@@ -138,6 +150,9 @@ void TensorDataLoader::prepare_indices() {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

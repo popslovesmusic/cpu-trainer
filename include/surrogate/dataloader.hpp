@@ -5,6 +5,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 
 namespace sur {
 
@@ -21,6 +22,8 @@ class TensorView;
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
 #include <random>
 #include <vector>
 
@@ -30,6 +33,9 @@ namespace sur {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -41,6 +47,7 @@ namespace sur {
 class DataLoader {
  public:
   virtual ~DataLoader() = default;
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -79,6 +86,14 @@ class DataLoader {
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+  virtual bool next_batch(Tensor<float>& inputs, Tensor<float>& targets) = 0;
+  virtual void reset() = 0;
+  virtual std::size_t size() const noexcept = 0;
+  virtual void set_seed(unsigned int seed) = 0;
+};
+
+>>>>>>> theirs
 class TensorDataLoader final : public DataLoader {
  public:
   TensorDataLoader(Tensor<float> inputs,
@@ -90,6 +105,10 @@ class TensorDataLoader final : public DataLoader {
   bool next_batch(Tensor<float>& inputs, Tensor<float>& targets) override;
   void reset() override;
   std::size_t size() const noexcept override;
+<<<<<<< ours
+=======
+  void set_seed(unsigned int seed) override;
+>>>>>>> theirs
 
   [[nodiscard]] int input_dim() const noexcept { return input_dim_; }
   [[nodiscard]] int output_dim() const noexcept { return output_dim_; }
@@ -120,6 +139,9 @@ class TensorDataLoader final : public DataLoader {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

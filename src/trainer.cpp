@@ -5,6 +5,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 #include <memory>
 
 namespace sur {
@@ -33,6 +34,11 @@ void Trainer::train(const TrainerConfig&) {}
 #include <cstddef>
 #include <cmath>
 >>>>>>> theirs
+=======
+#include <chrono>
+#include <cstddef>
+#include <cmath>
+>>>>>>> theirs
 #include <span>
 #include <stdexcept>
 #include <utility>
@@ -45,6 +51,10 @@ void Trainer::train(const TrainerConfig&) {}
 #include "surrogate/dataloader.hpp"
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+#include "surrogate/logging.hpp"
+>>>>>>> theirs
 =======
 #include "surrogate/logging.hpp"
 >>>>>>> theirs
@@ -81,7 +91,10 @@ void validate_config(const TrainConfig& config) {
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 float compute_gradient_norm(std::span<Tensor<float>* const> grads) {
@@ -101,6 +114,9 @@ float compute_gradient_norm(std::span<Tensor<float>* const> grads) {
 }
 
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -137,9 +153,23 @@ void Trainer::train(Model& model,
 #ifdef _OPENMP
   if (config.deterministic) {
     omp_set_dynamic(0);
+<<<<<<< ours
   }
 #endif
 
+=======
+    omp_set_num_threads(threads);
+    omp_set_schedule(omp_sched_static, 0);
+  } else {
+    omp_set_dynamic(1);
+  }
+#endif
+
+  if (config.deterministic) {
+    dataloader.set_seed(config.seed);
+  }
+
+>>>>>>> theirs
   auto params_vec = model.parameters();
   auto grads_vec = model.gradients();
   if (params_vec.size() != grads_vec.size()) {
@@ -171,10 +201,13 @@ void Trainer::train(Model& model,
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
   for (int epoch = 0; epoch < config.epochs; ++epoch) {
     dataloader.reset();
     while (dataloader.next_batch(batch_inputs, batch_targets)) {
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
   Logger* active_logger = config.logger;
@@ -194,6 +227,9 @@ void Trainer::train(Model& model,
     while (dataloader.next_batch(batch_inputs, batch_targets)) {
       const auto batch_start = std::chrono::steady_clock::now();
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -214,7 +250,11 @@ void Trainer::train(Model& model,
       Tensor<float> predictions = model.forward(batch_inputs);
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
       [[maybe_unused]] const float loss_value = loss.compute(predictions, batch_targets);
+=======
+      const float loss_value = loss.compute(predictions, batch_targets);
+>>>>>>> theirs
 =======
       const float loss_value = loss.compute(predictions, batch_targets);
 >>>>>>> theirs
@@ -229,6 +269,7 @@ void Trainer::train(Model& model,
 
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
       optimizer.step(params, grads);
     }
   }
@@ -241,6 +282,8 @@ void Trainer::train(Model& model,
 =======
 >>>>>>> theirs
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
       const float grad_norm = compute_gradient_norm(grads);
@@ -269,6 +312,9 @@ void Trainer::train(Model& model,
   }
 }
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

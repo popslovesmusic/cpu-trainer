@@ -32,3 +32,22 @@ cmake --list-presets
 
 GitHub Actions runs the preset matrix across Linux, macOS, and Windows to ensure configuration coverage.
 
+<<<<<<< ours
+=======
+## Performance Hints
+
+For best throughput on multi-core machines, pin OpenMP threads close to one another and provide an explicit thread count:
+
+```bash
+export OMP_PROC_BIND=close
+export OMP_PLACES=cores
+export OMP_NUM_THREADS=$(nproc)
+```
+
+Keep batch sizes large enough to feed the GEMM kernels efficiently (multiples of 8 rows and 4 columns deliver the best cache reuse).
+
+## Deterministic Training
+
+`sur::TrainConfig` exposes a `deterministic` flag and `seed` so repeated runs can reproduce data ordering and OpenMP scheduling. When determinism is enabled the trainer fixes the OpenMP schedule to `static`, disables dynamic teams, seeds the `DataLoader`, and keeps reductions ordered. Floating-point associativity still allows tiny numeric drift, so bitwise-identical results require single-threaded execution.
+
+>>>>>>> theirs

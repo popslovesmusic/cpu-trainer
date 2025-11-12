@@ -1,8 +1,11 @@
 <<<<<<< ours
+<<<<<<< ours
 #include <cstdlib>
 
 int main() { return EXIT_SUCCESS; }
 =======
+=======
+>>>>>>> theirs
 #include <algorithm>
 #include <array>
 #include <cassert>
@@ -159,5 +162,8 @@ int main() {
   run_gradient_check();
   return 0;
 }
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
