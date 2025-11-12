@@ -39,7 +39,10 @@ GitHub Actions runs the preset matrix across Linux, macOS, and Windows to ensure
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -74,6 +77,9 @@ Keep batch sizes large enough to feed the GEMM kernels efficiently (multiples of
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

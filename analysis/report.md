@@ -19,7 +19,10 @@
 All build presets configure successfully, tests pass under sanitizers and AVX2 release, and benchmarks confirm substantial speedups for optimized kernels.
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 
@@ -30,6 +33,9 @@ All build presets configure successfully, tests pass under sanitizers and AVX2 r
 - ✅ Layer forward/backward paths execute without additional allocations after warm-up due to pre-reserved workspaces.
 - ✅ Deterministic mode enforces fixed threading, seeded dataloaders, and reproducible loss curves on repeated runs.
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

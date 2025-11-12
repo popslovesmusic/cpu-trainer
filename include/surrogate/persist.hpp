@@ -16,9 +16,12 @@ class Model;
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 void save_model(const Model& model, const std::filesystem::path& path);
 void load_model(Model& model, const std::filesystem::path& path);
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -57,6 +60,9 @@ inline void load_model(Model& model, const std::filesystem::path& path) {
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

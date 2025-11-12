@@ -14,6 +14,7 @@
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 namespace sur {
 
 template <class T>
@@ -25,6 +26,8 @@ class SGD : public Optimizer {
   void zero_grad(const std::vector<Tensor<float>*>&) override {}
 };
 =======
+=======
+>>>>>>> theirs
 =======
 >>>>>>> theirs
 =======
@@ -192,6 +195,9 @@ void SGD::step(std::span<Tensor<float>* const> params,
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
